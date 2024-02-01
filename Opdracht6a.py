@@ -35,7 +35,7 @@ def SetAngle(angle, duration):
     pwm.ChangeDutyCycle(0)
 
 
-#Het zetten van de beginpositie van 0 graden gedurende 1 seconde
+#Het zetten van de beginpositie van 0 graden 
 SetAngle(0, 1)
 
 #Loop
