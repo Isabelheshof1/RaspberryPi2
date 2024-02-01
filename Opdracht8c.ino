@@ -19,20 +19,20 @@ pinMode(buttonPin2, INPUT_PULLUP);
 }
 
 void loop(){
-buttonState = digitalRead(buttonPin2);
+bool buttonState = digitalRead(buttonPin2);
 
 if (buttonState == LOW){
   unsigned long huidigeMillis = millis();
   if (huidigeMillis - laatsteMillis1 >= interval1){
     laatsteMillis1 = huidigeMillis;
-    status1 =!status1
+    status1 = !status1;
     digitalWrite(ledPin9, status1);
     }
   } else {
     unsigned long huidigeMillis = millis();
   if (huidigeMillis - laatsteMillis2 >= interval2){
     laatsteMillis2 = huidigeMillis;
-    status2 =!status2
+    status2 = !status2;
     digitalWrite(ledPin10, status2);
     }
   }
