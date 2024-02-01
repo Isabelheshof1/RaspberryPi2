@@ -1,0 +1,27 @@
+#Importeren van de bibiotheken vd Gpio-pinnen en de tijd
+import RPi.GPIO as GPIO
+import time
+
+# pin waarop het ledje is aangesloten op de raspberry pi
+LED_PIN16 = 16
+LED_PIN19 = 19
+
+#Gpio-modus naar de bcm configureren en de gpio-pin als uitgangpunt zetten voor het aansturen van het ledje
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(LED_PIN16, GPIO.OUT)
+GPIO.setup(LED_PIN19, GPIO.OUT)
+
+# loop
+while True:
+    #Laat het eerste ledje knipperen, waarbij het 1.3 sec aanstaat
+    GPIO.output(LED_PIN16, GPIO.HIGH)
+    time.sleep(1.3)
+    # Laat het eerste ledje knipperen, waarbij het 0.7 sec uitstaat
+    GPIO.output(LED_PIN16, GPIO.LOW)
+    time.sleep(0.7)
+    # Laat het tweede ledje knipperen, waarbij het 0.8 sec aanstaat
+    GPIO.output(LED_PIN19, GPIO.HIGH)
+    time.sleep(0.8)
+    # Laat het eerste ledje knipperen, waarbij het 1.7 sec uitstaat
+    GPIO.output(LED_PIN19, GPIO.LOW)
+    time.sleep(1.7)
