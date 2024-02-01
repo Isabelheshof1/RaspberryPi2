@@ -1,0 +1,21 @@
+#Importeren van de bibiotheken vd Gpio-pinnen en de tijd
+import RPi.GPIO as GPIO
+import time
+
+# pin waarop het ledje is aangesloten op de raspberry pi
+LED_PIN = 16
+
+#Gpio-,odus naar de bcm configureren en de gpio-pin als uitgangpunt zetten voor het aansturen van het ledje
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(LED_PIN, GPIO.OUT)
+
+# loop
+while True:
+    # laat het ledje branden
+    GPIO.output(LED_PIN, GPIO.HIGH)
+    # doe dit voor 0.1 seconde
+    time.sleep(0.1)
+    # laat het ledje niet branden
+    GPIO.output(LED_PIN, GPIO.LOW)
+    # doe dit voor 0.1 seconde
+    time.sleep(0.1)
