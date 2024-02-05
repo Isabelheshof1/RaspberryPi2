@@ -9,7 +9,7 @@ unsigned long hex[] = {0xF30CFF00, 0xE718FF00, 0xA15EFF00, 0xF708FF00};
 
 unsigned long newhex = 0;
 
-//Variable laatstemillis
+//Variable 
 unsigned long laatsteMillis[] = {0,0};
 
 int count = 0;
@@ -28,13 +28,16 @@ i++){
   }
 }
 
+
 void loop(){
   juisteButton();
+  //Als er een puls is gedetecteerd reset de teller, dit duurt wel 2 sec
   if (count == 1 && millis() - laatsteMillis[0] >= 2000){
     count = 0;
   } 
 }
 
+//Functie om de ledjes uit te schakelen
 void uitschakelenLed(){
   for (int i = 0; i < sizeof(RasPin) / sizeof(RasPin[0]);
     i++){
@@ -42,6 +45,7 @@ void uitschakelenLed(){
     }
 }
 
+//Functie om de controle uit te voeren of de ir-code overeenkomt met de hex-waarde
 void juisteButton(){
   if (irrecv.decode()){
     newhex = irrecv.decodedIRData.decodedRawData;
@@ -55,6 +59,7 @@ void juisteButton(){
         laatsteLed = i;
       }
     }
+    //Hervatten vd ir-signalen
     irrecv.resume();
   }
 }
